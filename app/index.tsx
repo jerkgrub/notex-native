@@ -1,37 +1,62 @@
+import { ThemedView } from "@/components/ThemedView";
+import { Link } from "expo-router";
 import "react-native-reanimated";
+import { Platform, StyleSheet } from 'react-native';
 import { Button, H1, H3, Input, View, XStack, YStack } from "tamagui";
+import { Activity, Airplay} from '@tamagui/lucide-icons'
 
 export default function index() {
   return (
-    <View>
-      <YStack 
-      justifyContent="center"
+      <View
       alignItems="center"
       p={'$5'}
+      >
+      <YStack 
+      p={'$1'}
+      width={'100%'}
+      height={'100%'}
       >
       
       {/* top container for label, search and new note button */}
       <XStack
-      gap={'$5'}
-      flex={1}
+      gap={'$2'}
       width={'100%'}
-      alignItems="center"
+      flex={1}
+      justifyContent="space-between"
       >
       <H3
       style={{ whiteSpace: 'nowrap' }}
       >My Notes</H3>
       <Input 
-      width={'100%'}
-      placeholder={'Search..'}
-      />
+            width={Platform.OS === 'ios' ? '45%' : '100%'}
+            placeholder={'Search..'}
+          />
+      
+      <Link 
+      style={{ textDecorationLine: 'none' }}
+      href="/(stack)/new_note" asChild>
       <Button
       bc="#CCCCCC"
       fontWeight={'bold'}
-      >Create New Note</Button>
+      icon={Airplay}
+      >
+        New</Button>
+      </Link>
+
+
       </XStack>
       
 
       </YStack>
-    </View>
+      </View> 
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+});
