@@ -43,11 +43,12 @@ export default function RootLayout() {
         }}>
           {/* Optionally configure static options outside the route.*/}
 
+          
           <Stack.Screen name="index" options={{ title: "Home" }} />
-
           <Stack.Screen name="(stack)/new_note" options={{ title: "New Note" }} />
 
-          <Stack.Screen name="choifs/two" options={{ title: "Two" }} />
+          
+
         </Stack>
       </ThemeProvider>
     </TamaguiProvider>

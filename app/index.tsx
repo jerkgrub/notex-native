@@ -3,7 +3,7 @@ import { Link } from "expo-router";
 import "react-native-reanimated";
 import { Platform, StyleSheet } from 'react-native';
 import { Button, H1, H3, Input, View, XStack, YStack } from "tamagui";
-import { Activity, Airplay} from '@tamagui/lucide-icons'
+import { Activity, Airplay, Plus} from '@tamagui/lucide-icons'
 
 export default function index() {
   return (
@@ -21,7 +21,6 @@ export default function index() {
       <XStack
       gap={'$2'}
       width={'100%'}
-      flex={1}
       justifyContent="space-between"
       >
       <H3
@@ -38,7 +37,7 @@ export default function index() {
       <Button
       bc="#CCCCCC"
       fontWeight={'bold'}
-      icon={Airplay}
+      icon={Plus}
       >
         New</Button>
       </Link>
