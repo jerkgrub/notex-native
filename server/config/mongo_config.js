@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 //     useUnifiedTopology: true
 // })
 
-mongoose.connect('mongodb://127.0.0.1:27017/comexconnect', {
+mongoose.connect('mongodb://127.0.0.1:27017/notexnative', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

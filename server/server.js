@@ -6,12 +6,8 @@ const cors = require("cors");
 app.use(express.json(), express.urlencoded({ extended: true }), cors());
 
 //introduce your routes to the server
-const NoteRoute = require("./routes/comex_routes");
-const UserRoute = require("./routes/user_routes");
-const EventRoute = require("./routes/event_routes");
+const NoteRoute = require("./routes/note_routes");
 
-app.use(UserRoute);
 app.use(NoteRoute);
-app.use(EventRoute);
 
 app.listen(port, () => console.log("The server is all fired up on port 8000"));
