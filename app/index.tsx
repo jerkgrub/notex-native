@@ -6,6 +6,7 @@ import {
   H3,
   Input,
   Paragraph,
+  ScrollView,
   View,
   XStack,
   YStack,
@@ -30,7 +31,7 @@ export default function Index() {
       }
     };
     fetchNotes();
-  }, []);
+  }, );
 
   return (
     <View alignItems="center" p={"$5"} gap={"$5"}>
@@ -44,7 +45,7 @@ export default function Index() {
             placeholder={"Search.."}
           />
 
-          <Link href="/(stack)/new_note" asChild>
+          <Link href="/(stack)/notes/new" asChild>
             <Button bc="#CCCCCC" fontWeight={"bold"} icon={Plus}>
               New
             </Button>
@@ -55,7 +56,7 @@ export default function Index() {
       {/* notes container */}
       <XStack width={"100%"} height={"100%"} flexWrap="wrap">
         {notes.map((note) => (
-          <Link href={`/note/${note._id}`} key={note._id}>
+          <Link href={`/notes/${note._id}/view`} key={note._id}>
             <Card bordered bc={"lemonchiffon"}>
               <CardHeader padded>
                 <H2>{note.note_title}</H2>

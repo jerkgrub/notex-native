@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // ip address of the machine running the backend server
-const ip = '192.168.1.7'; // choifsssssssssssssssssssss
+const ip = '192.168.1.136'; // choifsssssssssssssssssssss
 // ip address of the machine running the backend server
 
 const AxiosInstance = axios.create({

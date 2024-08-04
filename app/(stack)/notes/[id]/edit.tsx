@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import { Plus, Square } from "@tamagui/lucide-icons";
 import { Card, ScrollView, Text } from "tamagui";
 import { Button, H3, XStack, YStack } from "tamagui";
 import AxiosInstance from "@/components/backend/AxiosInstance";
 
-export default function Note() {
+export default function Edit() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
   const [note, setNote] = useState(null);
@@ -15,7 +14,7 @@ export default function Note() {
       try {
         console.log(`Fetching note with id: ${id}`); // Add logging here
         const response = await AxiosInstance.get(`/note/${id}`);
-        console.log('Fetched note data:', response.data); // Add logging here
+        console.log("Fetched note data:", response.data); // Add logging here
         setNote(response.data.Note);
       } catch (error) {
         console.error("Error fetching note:", error);
@@ -24,7 +23,6 @@ export default function Note() {
     if (id) fetchNote();
   }, [id]);
 
-  
   if (!note) {
     return (
       <ScrollView p={"$5"}>
@@ -39,12 +37,14 @@ export default function Note() {
         {/* top container for label, search and new note button */}
         <XStack gap={"$5"} alignItems="center" justifyContent="space-between">
           <H3 style={{ whiteSpace: "nowrap" }}>
-            You are now viewing {note.note_title}
+            You are now editing {note.note_title}
           </H3>
 
           <XStack gap={"$2"}>
-            <Button bc="#CCCCCC" onPress={() => router.back()}>Back</Button>
-            <Button bc="#CCCCCC">Edit Note</Button>
+            <Button bc="#CCCCCC" onPress={() => router.back()}>
+              Back
+            </Button>
+            <Button bc="#CCCCCC">Save</Button>
           </XStack>
         </XStack>
       </YStack>
